@@ -1,7 +1,9 @@
 package com.green.greengram.feed;
 
 import com.green.greengram.common.CustomFileUtils;
+import com.green.greengram.common.GlobalConst;
 import com.green.greengram.feed.model.*;
+import com.green.greengram.feedcomment.model.FeedCommentGetRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -53,6 +55,12 @@ public class FeedService {
             res.setPics(pics);
 
             //댓글 리스트
+            List<FeedCommentGetRes> comments = mapper.getFeedCommentTopBy4ByFeedId(res.getFeedId());
+            if(comments.size() == GlobalConst.COMMENT_SIZE_PER_FEED) {
+                res.setIsMoreComment(1);
+                comments.remove(comments.size() - 1);
+            }
+            res.setComments(comments);
         }
         return list;
     }
