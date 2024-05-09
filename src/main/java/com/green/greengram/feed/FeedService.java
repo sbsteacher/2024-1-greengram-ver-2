@@ -47,8 +47,12 @@ public class FeedService {
     public List<FeedGetRes> getFeed(FeedGetReq p) {
         List<FeedGetRes> list = mapper.getFeed(p);
         for(FeedGetRes res : list) {
+            //피드 하나당 포함된
+            //사진 리스트
             List<String> pics = mapper.getFeedPicsByFeedId(res.getFeedId());
             res.setPics(pics);
+
+            //댓글 리스트
         }
         return list;
     }
