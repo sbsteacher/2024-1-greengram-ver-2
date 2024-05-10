@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/feed/favorite")
 public class FeedFavoriteController {
     private final FeedFavoriteService service;
+
     //전송 데이터 적음, 데이터 노출되면 안 되는 것.
     @GetMapping
     @Operation(summary = "좋아요", description = "Toggle 처리")

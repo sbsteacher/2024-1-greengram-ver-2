@@ -20,8 +20,8 @@ springdoc:
     default-model-expand-depth: 10
     default-models-expand-depth: 10
     display-request-duration: true
-    cache:
-      disabled: true
+  cache:
+    disabled: true
 
 file:
   directory: D:\2024-01\download\greengram_ver2\
